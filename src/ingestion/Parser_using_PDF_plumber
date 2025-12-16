@@ -1,0 +1,42 @@
+# Install the pdfplumber library if not already installed
+!pip install pdfplumber
+
+# Import necessary libraries
+import pdfplumber
+import json
+from pathlib import Path
+
+# Define the path to the input PDF file and the output JSON file
+pdf_path = '/content/sample_data/Intel2025_10QSep.pdf'
+output_path ='/content/sample_data/Intel2025_10QSep.json' # Corrected output path to be a JSON file
+
+# Convert the PDF path string to a Path object
+pdf_path = Path(pdf_path)
+
+# Determine the output path; if not specified, use the PDF path with a .json extension
+output_path = Path(output_path) if output_path else pdf_path.with_suffix(".json")
+
+# Initialize a dictionary to store the extracted data
+data = {
+        "filename": pdf_path.name, # Store the name of the PDF file
+        "pages": [] # Initialize an empty list to store data for each page
+    }
+
+# Open the PDF file using pdfplumber
+with pdfplumber.open(pdf_path) as pdf:
+        # Iterate through each page in the PDF
+        for i, page in enumerate(pdf.pages, start=1):
+            text = page.extract_text() or "" # Extract text from the current page; default to empty string if no text
+            tables = page.extract_tables() # Extract tables from the current page
+            # Append the extracted data (page number, text, and tables) to the 'pages' list
+            data["pages"].append({
+                "page_number": i,
+                "text": text,
+                "tables": tables
+            })
+
+    # Save the extracted data to a JSON file
+with open(output_path, "w", encoding="utf-8") as f:
+        # Dump the 'data' dictionary into the JSON file with pretty printing (indent=2)
+        json.dump(data, f, indent=2, ensure_ascii=False)
+
