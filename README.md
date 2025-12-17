@@ -50,3 +50,26 @@ Financial-Analysis-Assistant/
 ├── README.md
 └── requirements.txt
 ```
+## Chunking, Embeddings, and Vector Retrieval
+
+This project includes a document chunking and vector indexing pipeline that prepares financial filings for retrieval-augmented generation (RAG).
+The pipeline processes parsed financial documents, generates dense embeddings, builds a FAISS index, and enables semantic search over the indexed content.
+
+### Input Data
+Parsed documents should be uploaded.
+
+Each file is expected to be a JSON file with the following structure:
+```json
+{
+  "filename": "example.pdf",
+  "pages": [
+    { "page_number": 1, "text": "page text here" },
+    { "page_number": 2, "text": "page text here" }
+  ]
+}
+```
+### Build Document Chunks, Embeddings, and FAISS Index
+Run the next code:
+```bash
+python src/Build_Search_Embeddings.py
+```
