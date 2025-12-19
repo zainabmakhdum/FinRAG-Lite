@@ -431,7 +431,7 @@ textarea, input, .gr-textbox, .gr-markdown, .gr-box, .gr-panel {
 
 with gr.Blocks(title="FinRAG-Lite") as demo:
     gr.Markdown("<div id='mp_title'>FinRAG-Lite</div>")
-    gr.Markdown("<div id='mp_subtitle'>An app by Brandon Rodriguez, Zainab Makhdum, Mani Karunanidhi, and Ayon Roy<br> Enter a question about Nvidia / Intel / TSMC / Samsung to understand a company’s performance, risks, trajectory, and recent developments.<br> The average time (using a M1 Macbook on following tuning instructions) for a question is 180 seconds.</div>")
+    gr.Markdown("<div id='mp_subtitle'>An app by Brandon Rodriguez, Zainab Makhdum, Nazgul Maksutkhan, Mani Karunanidhi, and Ayon Roy<br> Enter a question about Nvidia / Intel / TSMC / Samsung to understand a company’s performance, risks, trajectory, and recent developments.<br> The average time (using a M1 Macbook on following tuning instructions) for a question is 180 seconds.</div>")
 
     inp = gr.Textbox(
         label="Your question",
