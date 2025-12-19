@@ -1,22 +1,28 @@
 # FinRAG-Lite
 COMS-4995-032: Applied Machine Learning Final Project
+
 **FinRAG-Lite** is a retrieval augmented generation (RAG) engine designed to answer high-level financial questions about major semiconductor companies by utilizing company filings and recent news articles. 
 
 # Contributions: - /docs/Logistics_Planning
 
 ## 95% - Brandon Rodriguez, Zainab Makhdum 
 
-### Brandon - Researched and implemented local quantized LLM model from HuggingFace. Developed answer template categories, usage definitions, and patterns for the LLM to use. Developed final prompt template to optimize performance, accuracy, and stability. Built testing procedure to evaluate model by comparing 10 queries using 3 LLM models and a judge LLM. Generated 250 queries and 100 synthetic examples using prompt wrapper functions and manual LLM prompting. Researched and implemented QLoRA fine-tuning using generated examples. Built final UI and connected embedding, prompt creation, and LLM parsing functions. Wrote technical details to slideshow and final report. Organized final notebook files into py files for Github. 
+### Brandon: 
+Researched and implemented local quantized LLM model from HuggingFace. Developed answer template categories, usage definitions, and patterns for the LLM to use. Developed final prompt template to optimize performance, accuracy, and stability. Built testing procedure to evaluate model by comparing 10 queries using 3 LLM models and a judge LLM. Generated 250 queries and 100 synthetic examples using prompt wrapper functions and manual LLM prompting. Researched and implemented QLoRA fine-tuning using generated examples. Built final UI and connected embedding, prompt creation, and LLM parsing functions. Wrote technical details to slideshow and final report. Organized final notebook files into py files for Github. 
 
-### Zainab - Researched and implemented a live news API for news embedding using token authentication and keyword searches. Planned and assigned all work each week, following up on any blockers or missing pieces. Created final prompt maker notebook used to generate all prompts used in tuning and testing. Planned and built slideshow including technical slides to manage 10 minute timer. Wrote video script according to time constraints to ensure equal participation. Created shared Github repo and file structure. Helped write and organize final report. 
+### Zainab: 
+Researched and implemented a live news API for news embedding using token authentication and keyword searches. Planned and assigned all work each week, following up on any blockers or missing pieces. Created final prompt maker notebook used to generate all prompts used in tuning and testing. Planned and built slideshow including technical slides to manage 10 minute timer. Wrote video script according to time constraints to ensure equal participation. Created shared Github repo and file structure. Helped write and organize final report. 
 
 ## 5% - Nazgul Maksutkhan, Mani Karunanidhi, and Ayon Roy
 
-### Nazgul - Researched and implemented a lightweight embedded vector system to pull relevant snippets when creating a prompt using a FAISS index. Built prompts to evaluate model performance and executed testing steps. 
+### Nazgul: 
+Researched and implemented a lightweight embedded vector system to pull relevant snippets when creating a prompt using a FAISS index. Built prompts to evaluate model performance and executed testing steps. 
 
-### Mani - Built a chunking system to divide company documents into usable snippets with metadata. Chunked collected company filings into Json files. Researched initial UI app format. Tabulated testing results.
+### Mani: 
+Built a chunking system to divide company documents into usable snippets with metadata. Chunked collected company filings into Json files. Researched initial UI app format. Tabulated testing results.
 
-### Ayon - Researched Google Cloud TPU strength and storage. Researched initial UI app format. 
+### Ayon: 
+Researched Google Cloud TPU strength and cloud storage size. Researched initial UI app format. 
 
 ![alt text](/images/appimage.png)
 
