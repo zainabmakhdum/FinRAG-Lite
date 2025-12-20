@@ -124,6 +124,12 @@ Therefore, this RAG solution answers company-specific questions by combining fin
 
 We chunked each parsed filing/report into retrieval-sized passages, stored the chunk text plus metadata (e.g., source filename and page number), and embedded those chunks into dense vectors for semantic search. At runtime, the user query is embedded and used to retrieve the most relevant evidence (top snippets) from a FAISS index, providing grounded context for the RAG answer generation. The final embedding workflow is designed to return a small, consistent context window (snippets/templates/news) for prompt construction.
 
+### Fetching Relevant News - /src/PromptMaker.py
+
+We implemented a NewsAPI integration to retrieve query-relevant recent (7 day) news articles using keyword searches. This supplementary context was provided to assist analysts with gauging recent sentiment, risks, and ongoings of a particular company. In order to fetch news, you will need to create a [NewsAPI API Key here](https://newsapi.ai). 
+
+NewsAPI.ai's [documentation](https://newsapi.ai/documentation?tab=introduction) can be used for utilizing a wide variety of parameters to get optimal search results.
+
 ### Prompt Engineering - docs/EmbeddedPrompt
 
 We engineered a structured prompt format that enforces evidence-only reasoning (snippets as the source of truth), uses news only as supplementary context, and requires explicit, snippet-based citations to reduce hallucinations and improve interpretability. A library of 28 templates forces the model to pick a single response pattern and “slot-fill” it, creating consistent outputs across bullish/bearish, risk, peer comparison, and limited-information cases. The prompt also specifies a strict single-line JSON output schema to make downstream parsing reliable and deterministic. 
